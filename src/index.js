@@ -31,13 +31,15 @@ app.listen(process.env.PORT || 3000, function(){
 
 app.post('/', (req, res) => {
     // TODO: Need to replace the S3 URL with the one that will be used for circleUp
+    // Can also control the number of images through a process env like
+    // process.env.NUMBER_IMAGES instead of hardcoding here?
   const image_number = Math.floor(Math.random() * 9) + 1
 
   let data = {
     response_type: 'in_channel', // public to the channel
     attachments:[
       {
-        image_url: `https://frakes.s3-us-west-2.amazonaws.com/frakes-bot/${image_number}.jpg`
+        image_url: `https://cuecards.s3-us-west-2.amazonaws.com/cuecards-bot/${image_number}.png`
       }
     ]
   };
